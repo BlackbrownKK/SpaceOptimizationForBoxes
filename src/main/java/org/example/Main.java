@@ -19,8 +19,6 @@ public class Main {
         });
 
 
-        CsvReader csvReader = new CsvReader();
-        csvReader.getInputDataFromCsvFile();
-        System.out.println(Arrays.deepToString(csvReader.getInputDataFromCsvFile()));
+
     }
 }

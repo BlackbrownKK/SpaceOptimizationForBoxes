@@ -34,7 +34,7 @@ public class CsvReader {
 
             rowCount = sheet.getPhysicalNumberOfRows();
 
-            System.out.println("Number of rows: " + rowCount);
+
 
         } catch (IOException | EncryptedDocumentException e) {
             e.printStackTrace();
@@ -55,7 +55,6 @@ public class CsvReader {
                 int lastColumn = Math.max(row.getLastCellNum(), row.getPhysicalNumberOfCells());
                 maxColumnCount = Math.max(maxColumnCount, lastColumn);
             }
-            System.out.println("max Column Count: " + maxColumnCount);
         } catch (IOException | EncryptedDocumentException e) {
             e.printStackTrace();
         }
@@ -83,13 +82,6 @@ public class CsvReader {
                         inputDataFromCsvFile[i][j] = cell.toString();
                     }
                 }
-            }
-            // Display the data in the array
-            for (String[] row : inputDataFromCsvFile) {
-                for (String cell : row) {
-                    System.out.print(cell + "\t");
-                }
-                System.out.println();
             }
 
         } catch (IOException | EncryptedDocumentException e) {

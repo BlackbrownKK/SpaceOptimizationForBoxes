@@ -1,5 +1,8 @@
 package org.example.ships;
 
+import org.example.controller.CargoCollectionMaker;
+import org.example.model.Item;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -42,9 +45,33 @@ public class Mittelplate extends JFrame {
 
             // Draw the Mittelplate with padding
             g.drawRect(x, y, scaledLength, scaledWidth);
-            g.drawString("Mittelplate tween Deck", x + 10, y + 20);
+            g.drawString("Mittelplate tween Deck", x, y);
 
-            // Additional drawing or labeling if needed
+
+            // Draw cargo items
+            CargoCollectionMaker cargoCollectionMaker = new CargoCollectionMaker();
+            int tempStartX = x;
+            int tempStartY = y;
+
+            for (int i = 0; i < 10; i++) {
+                // Check if the cargo item has length and width
+                // Calculate the scaled dimensions for the cargo item
+                Item item = cargoCollectionMaker.getCargoList().get(i);
+
+                int scaledCargoLength = (int) (item.getLength() * 1000 * scale);
+                int scaledCargoWidth = (int) (item.getWidth() * 1000 * scale);
+
+                // Calculate the position to center the cargo item relative to the Mittelplate
+                int cargoX = tempStartX;
+                int cargoY = tempStartY;
+
+                // Draw the cargo item
+                g.drawRect(cargoX, cargoY, scaledCargoLength, scaledCargoWidth);
+                g.drawString(item.getName(), cargoX, cargoY);
+                tempStartX = cargoX + scaledCargoLength;
+            }
         }
     }
 }
+
+
