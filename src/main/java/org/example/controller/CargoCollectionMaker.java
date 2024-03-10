@@ -1,22 +1,23 @@
 package org.example.controller;
 
-import org.example.CsvReader;
+import org.example.tools.CsvReader;
 import org.example.model.Item;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class CargoCollectionMaker {
 
-    private List<Item> cargoList = new ArrayList<>();
 
-    public List<Item> getCargoList() {
+// prepare first ungroup collection
+
+    private ArrayList<Item> cargoList = new ArrayList<>();
+
+    public ArrayList<Item> getCargoList() {
         initialiseCargoList ();
         return cargoList;
     }
 
-    public void initialiseCargoList () {
+    private void initialiseCargoList () {
         int itemIdItaration = 0;
         CsvReader csvReader = new CsvReader();
         String [][] inputData = csvReader.getInputDataFromCsvFile();
@@ -25,15 +26,14 @@ public class CargoCollectionMaker {
                     inputData[i][0],
                     itemIdItaration,
                     parseToInt(inputData[i][1]),
-                    parseToDouble(inputData[i][2]),
-                    parseToDouble(inputData[i][3]),
-                    parseToDouble(inputData[i][4]),
+                    parseToInt(String.valueOf(Math.round(parseToDouble(inputData[i][2]) * 1000))),
+                    parseToInt(String.valueOf(Math.round(parseToDouble(inputData[i][3]) * 1000))),
+                    parseToInt(String.valueOf(Math.round(parseToDouble(inputData[i][4]) * 1000))),
                     parseToDouble(inputData[i][5]));
             cargoList.add(item);
             itemIdItaration++;
         }
     }
-
 
     public static int parseToInt(String str) throws NumberFormatException {
         if (str.endsWith(".0")) {
@@ -42,11 +42,7 @@ public class CargoCollectionMaker {
         }
         return Integer.parseInt(str);
     }
-
-
         public static double parseToDouble(String str) throws NumberFormatException {
             return Double.parseDouble(str);
         }
-
-
 }

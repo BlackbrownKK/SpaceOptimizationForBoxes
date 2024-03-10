@@ -1,4 +1,4 @@
-package org.example;
+package org.example.tools;
 
 import org.apache.commons.compress.archivers.dump.InvalidFormatException;
 import org.apache.commons.csv.CSVFormat;
@@ -21,7 +21,7 @@ public class CsvReader {
         return inputDataFromCsvFile;
     }
 
-    String patch = "C:\\Users\\konstantin.kosteniuk\\IdeaProjects\\SpaceOptimizationForBoxes\\src\\main\\resources\\cargoList - workshop.csv.xlsx";
+    String patch = "src/main/resources/cargoList - workshop.csv.xlsx";
 
 
     public int excelRowCount() {

@@ -4,13 +4,16 @@ public class Item {
     private String name;
     private int itemId;
     private int quantity;
-    private double length;
-    private double width;
-    private double height;
+    private int length;
+    private int width;
+    private int height;
     private double weight;
 
+    private int coordinateX;
+    private int coordinateY;
 
-    public Item(String name, int itemId, int quantity, double length, double width, double height, double weight) {
+
+    public Item(String name, int itemId, int quantity, int length, int width, int height, double weight) {
         this.name = name;
         this.itemId = itemId;
         this.quantity = quantity;
@@ -32,20 +35,41 @@ public class Item {
         return quantity;
     }
 
-    public double getLength() {
+    public int getLength() {
         return length;
     }
 
-    public double getWidth() {
+    public int getWidth() {
         return width;
     }
 
-    public double getHeight() {
+    public int getHeight() {
         return height;
     }
 
     public double getWeight() {
         return weight;
+    }
+
+    public int getCoordinateX() {
+        return coordinateX;
+    }
+
+    public void setCoordinateX(int coordinateX) {
+        this.coordinateX = coordinateX;
+    }
+
+    public int getCoordinateY() {
+        return coordinateY;
+    }
+
+    public void setCoordinateY(int coordinateY) {
+        this.coordinateY = coordinateY;
+    }
+
+    @Override
+    public String toString() {
+        return "Id " + itemId;
     }
 }
 
