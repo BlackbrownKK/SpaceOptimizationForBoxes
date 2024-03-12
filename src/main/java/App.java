@@ -54,7 +54,7 @@ public class App {
             drawsFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             DrawsController drawsController = new DrawsController(plannerController.planer(), vessel);
             drawsFrame.setContentPane(drawsController.getContentPane()); // Set the content pane properly
-            drawsFrame.setSize(800, 600); // Set the size manually to ensure it's large enough
+            drawsFrame.setSize(1500 , 10005); // Set the size manually to ensure it's large enough
             drawsFrame.pack();
             drawsFrame.setLocationRelativeTo(null);
             drawsFrame.setVisible(true);

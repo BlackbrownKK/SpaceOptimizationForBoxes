@@ -7,12 +7,15 @@ public class Vessel {
     private int width ;
     private int height ;
 
+
     public Vessel(String name, int length, int width, int height) {
         this.name = name;
         this.length = length;
         this.width = width;
         this.height = height;
     }
+
+    public Vessel(){};
 
     public String getName() {
         return name;
